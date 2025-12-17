@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Header from "./components/page";
 
 export default function HomePage() {
   useEffect(() => {
@@ -12,34 +13,34 @@ export default function HomePage() {
       easing: "ease-in-out",
     });
   }, []);
+  useEffect(() => {
+  const counters = document.querySelectorAll(".count");
+
+  counters.forEach((counter) => {
+    const target = Number(counter.getAttribute("data-target"));
+    let current = 0;
+
+    const update = () => {
+      const increment = Math.ceil(target / 80);
+      current += increment;
+
+      if (current < target) {
+        counter.textContent = current.toString();
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target.toString();
+      }
+    };
+
+    update();
+  });
+}, []);
+
 
   return (
     <main className="w-full text-gray-800">
 
-      {/* ================= NAVBAR ================= */}
-      <header data-aos="fade-down" className="bg-white border-b sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-green-600">FITSTORE</h1>
-
-          <nav className="hidden md:flex gap-8 font-medium">
-            <a href="#">Home</a>
-            <a href="#">Categories</a>
-            <a href="#">Deals</a>
-            <a href="#">Products</a>
-            <a href="#">Contact</a>
-          </nav>
-
-          <div className="flex gap-4 items-center">
-            <input
-              type="text"
-              placeholder="Search protein, gear..."
-              className="hidden md:block border px-4 py-2 rounded-lg"
-            />
-            <span>🛒</span>
-            <span>👤</span>
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       {/* ================= HERO (FULL BG IMAGE) ================= */}
 <section
@@ -52,7 +53,7 @@ export default function HomePage() {
   }}
 >
   {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black/50"></div>
+  <div className="absolute inset-0 bg-black/10"></div>
 
   {/* Content */}
   <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -81,32 +82,65 @@ export default function HomePage() {
   </div>
 </section>
 
+{/* ================= TRUST STATS ================= */}
+<section className="bg-gray-100 py-16 md:py-24">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-      {/* ================= TRUST BADGES ================= */}
-<section className="bg-gray-50 py-16">
-  <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    {/* Title */}
+    <div
+      className="text-center mb-12 md:mb-16"
+      data-aos="fade-up"
+    >
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
+        Trusted by the Fitness Community
+      </h2>
 
-    {[
-      { icon: "✅", title: "Authentic Products", desc: "100% genuine items" },
-      { icon: "🚚", title: "Fast Delivery", desc: "Quick & reliable shipping" },
-      { icon: "🏆", title: "Top Rated", desc: "Trusted by experts" },
-      { icon: "🔒", title: "Secure Payment", desc: "Safe checkout" },
-    ].map((item, i) => (
-      <div
-        key={item.title}
-        data-aos="fade-up"
-        data-aos-delay={i * 100}
-        className="bg-green-50 border border-green-100 rounded-xl p-6
-                   hover:bg-green-100 transition duration-300 hover:-translate-y-1"
-      >
-        <div className="text-4xl mb-4">{item.icon}</div>
-        <h3 className="font-semibold text-lg">{item.title}</h3>
-        <p className="text-sm text-gray-600 mt-2">{item.desc}</p>
-      </div>
-    ))}
+      <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
+        Over a decade of experience delivering quality, results,
+        and customer satisfaction.
+      </p>
+    </div>
 
+    {/* Stats Grid */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
+
+      {[
+        { value: 10, suffix: "+", label: "Years Experience" },
+        { value: 100, suffix: "+", label: "Batches Trained" },
+        { value: 1000, suffix: "+", label: "Happy Clients" },
+        { value: 99, suffix: "%", label: "Success Rate" },
+      ].map((item, i) => (
+        <div
+          key={item.label}
+          data-aos="fade-up"
+          data-aos-delay={i * 100}
+          className="
+            bg-white rounded-xl sm:rounded-2xl
+            p-5 sm:p-6 md:p-10
+            shadow hover:shadow-xl
+            transition duration-300
+          "
+        >
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-green-600">
+            <span
+              className="count"
+              data-target={item.value}
+            >
+              0
+            </span>
+            {item.suffix}
+          </h3>
+
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base font-medium text-gray-800">
+            {item.label}
+          </p>
+        </div>
+      ))}
+
+    </div>
   </div>
 </section>
+
 
 
       {/* ================= CATEGORIES ================= */}
