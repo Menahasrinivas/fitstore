@@ -1,19 +1,20 @@
 import "./globals.css";
+import Header from "./components/Header";
+import WhatsAppButton from "./components/WhatsAppButton";
 
-export const metadata = {
-  title: "FitStore",
-  description: "Fitness Ecommerce Website",
-};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        {children}
+      <body>
+        {/* HEADER – ALL PAGES */}
+        <Header />
+
+        {/* PAGE CONTENT */}
+        <main>
+          {children}
+        </main>
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  // MENU WITH ROUTES
   const menuItems = [
-    "Home",
-    "Categories",
-    "Deals",
-    "Products",
-    "Contact",
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Training", path: "/training" },
+    { label: "Products", path: "/shop" },
+    { label: "Deals", path: "/deals" },
+    { label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -25,9 +28,13 @@ export default function Header() {
         {/* DESKTOP MENU */}
         <nav className="hidden md:flex gap-8 font-medium text-gray-700">
           {menuItems.map((item) => (
-            <a key={item} href="#" className="hover:text-green-600">
-              {item}
-            </a>
+            <Link
+              key={item.label}
+              href={item.path}
+              className="hover:text-green-600 transition"
+            >
+              {item.label}
+            </Link>
           ))}
         </nav>
 
@@ -59,14 +66,14 @@ export default function Header() {
         <div className="md:hidden bg-white border-t">
           <nav className="flex flex-col px-6 py-6 gap-4 font-medium text-gray-700">
             {menuItems.map((item) => (
-              <a
-                key={item}
-                href="#"
+              <Link
+                key={item.label}
+                href={item.path}
                 onClick={() => setOpen(false)}
-                className="hover:text-green-600"
+                className="hover:text-green-600 transition"
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </nav>
         </div>

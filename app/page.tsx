@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Header from "./components/page";
 
 export default function HomePage() {
   useEffect(() => {
@@ -40,7 +39,7 @@ export default function HomePage() {
   return (
     <main className="w-full text-gray-800">
 
-      <Header/>
+  
 
       {/* ================= HERO (FULL BG IMAGE) ================= */}
 <section
@@ -72,10 +71,10 @@ export default function HomePage() {
 
       <div className="mt-6 flex gap-4">
         <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition">
-          Shop Now
+          Join Now
         </button>
         <button className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
-          View Deals
+         Shop Now
         </button>
       </div>
     </div>
@@ -100,6 +99,8 @@ export default function HomePage() {
         and customer satisfaction.
       </p>
     </div>
+
+
 
     {/* Stats Grid */}
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
@@ -141,6 +142,275 @@ export default function HomePage() {
   </div>
 </section>
 
+{/* ================= OFFERS & DEALS CTA ================= */}
+<section className="bg-gray-100 py-10">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* TITLE */}
+    <div
+      data-aos="fade-up"
+      className="text-center mb-14"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        Exclusive <span className="text-green-600">Offers for You</span>
+      </h2>
+      <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+        Special training programs and product deals crafted to help you
+        achieve faster fitness results.
+      </p>
+    </div>
+
+    {/* OFFER CARDS */}
+    <div className="grid md:grid-cols-2 gap-8">
+
+      {/* TRAINING OFFER */}
+      <a
+        href="/training"
+        data-aos="fade-right"
+        className="
+          group relative rounded-2xl overflow-hidden
+          shadow hover:shadow-xl transition
+        "
+      >
+        <img
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b"
+          className="h-80 w-full object-cover group-hover:scale-105 transition duration-500"
+        />
+
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
+          <span className="bg-green-600 w-fit px-4 py-1 rounded-full text-sm mb-3">
+            Training Offer
+          </span>
+
+          <h3 className="text-2xl font-bold mb-2">
+            Save Big on Gym Training
+          </h3>
+
+          <p className="text-gray-200 mb-4">
+            Join our professional training programs with exclusive discounts.
+          </p>
+
+          <span className="inline-block bg-white text-black px-5 py-2 rounded-lg font-medium w-fit">
+            View Training Deals →
+          </span>
+        </div>
+      </a>
+
+      {/* PRODUCT OFFER */}
+      <a
+        href="/deals"
+        data-aos="fade-left"
+        className="
+          group relative rounded-2xl overflow-hidden
+          shadow hover:shadow-xl transition
+        "
+      >
+        <img
+          src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1"
+          className="h-80 w-full object-cover group-hover:scale-105 transition duration-500"
+        />
+
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
+          <span className="bg-green-600 w-fit px-4 py-1 rounded-full text-sm mb-3">
+            Product Offer
+          </span>
+
+          <h3 className="text-2xl font-bold mb-2">
+            Flat Discounts on Supplements
+          </h3>
+
+          <p className="text-gray-200 mb-4">
+            Premium whey, accessories & combos at best prices.
+          </p>
+
+          <span className="inline-block bg-white text-black px-5 py-2 rounded-lg font-medium w-fit">
+            View Product Deals →
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+{/* ================= GYM SERVICES ================= */}
+<section className="bg-gray-100 py-10">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* TITLE */}
+    <div data-aos="fade-up" className="text-center mb-14">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        Our <span className="text-green-600">Training Programs</span>
+      </h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Transform your body with expert-led training programs designed
+        for all fitness levels.
+      </p>
+    </div>
+
+    {/* SERVICES GRID */}
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {/* SERVICE 1 */}
+      <div
+        data-aos="fade-up"
+        className="bg-white rounded-2xl overflow-hidden shadow
+                   hover:shadow-xl transition duration-300"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74"
+          className="h-56 w-full object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">
+            Personal Training
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">
+            One-on-one training sessions with certified trainers to
+            achieve faster results.
+          </p>
+          <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+            Enroll Now
+          </button>
+        </div>
+      </div>
+
+      {/* SERVICE 2 */}
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="bg-white rounded-2xl overflow-hidden shadow
+                   hover:shadow-xl transition duration-300"
+      >
+        <img
+          src="https://plus.unsplash.com/premium_photo-1661692331753-9f98cbbb8d05?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D"
+          className="h-56 w-full object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">
+            Weight Loss Program
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">
+            Fat-burning workouts combined with diet guidance for
+            sustainable weight loss.
+          </p>
+          <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+            Join Program
+          </button>
+        </div>
+      </div>
+
+      {/* SERVICE 3 */}
+      <div
+        data-aos="fade-up"
+        data-aos-delay="200"
+        className="bg-white rounded-2xl overflow-hidden shadow
+                   hover:shadow-xl transition duration-300"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b"
+          className="h-56 w-full object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">
+            Muscle Building
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">
+            Structured strength training plans focused on lean muscle
+            growth and power.
+          </p>
+          <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+            Start Training
+          </button>
+        </div>
+      </div>
+
+ {/* SERVICE 4 – MEN'S COMPETITION TRAINING */}
+  <div
+    data-aos="fade-up"
+    data-aos-delay="300"
+    className="bg-white rounded-2xl overflow-hidden shadow
+               hover:shadow-xl transition duration-300"
+  >
+    <img
+      src="https://media.istockphoto.com/id/465005814/photo/young-man-performing-front-double-biceps-pose.jpg?s=612x612&w=0&k=20&c=iBtLNuTrY6dnRSjB4H0sKDHX2iu_6DoUeUnnMVjzWOc="
+      className="h-56 w-full object-cover"
+    />
+    <div className="p-6">
+      <h3 className="text-xl font-semibold mb-2">
+        Men’s Competition Training
+      </h3>
+      <p className="text-gray-600 text-sm mb-4">
+        Advanced bodybuilding & strength training for competitions
+        and stage preparation.
+      </p>
+      <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+        Train for Competition
+      </button>
+    </div>
+  </div>
+
+  {/* SERVICE 5 – KIDS FITNESS */}
+  <div
+    data-aos="fade-up"
+    data-aos-delay="400"
+    className="bg-white rounded-2xl overflow-hidden shadow
+               hover:shadow-xl transition duration-300"
+  >
+    <img
+      src="https://media.istockphoto.com/id/1188433175/photo/happy-father-looking-at-cheerful-son-and-exercising-with-dumbbells.webp?a=1&b=1&s=612x612&w=0&k=20&c=jjxfWQl3-IgvdE-8kEN9IZU01pJfnpwnMiHZYSv9vMA="
+      className="h-56 w-full object-cover"
+    />
+    <div className="p-6">
+      <h3 className="text-xl font-semibold mb-2">
+        Kids Fitness Training
+      </h3>
+      <p className="text-gray-600 text-sm mb-4">
+        Fun, safe and guided fitness programs to build strength,
+        discipline and confidence in kids.
+      </p>
+      <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+        Enroll Kids
+      </button>
+    </div>
+  </div>
+
+{/* SERVICE 6 – SENIOR CITIZEN FITNESS */}
+<div
+  data-aos="fade-up"
+  data-aos-delay="500"
+  className="bg-white rounded-2xl overflow-hidden shadow
+             hover:shadow-xl transition duration-300"
+>
+  <img
+    src="https://media.istockphoto.com/id/1427218939/photo/men-and-woman-cycling-at-gym.webp?a=1&b=1&s=612x612&w=0&k=20&c=ycarHxg1VO77iIEaIYLycBLygu7etPLLrYkdHCe4l1w="
+    className="h-56 w-full object-cover"
+    alt="Senior Citizen Fitness Training"
+  />
+  <div className="p-6">
+    <h3 className="text-xl font-semibold mb-2">
+      Senior Citizen Fitness (40+/50+)
+    </h3>
+    <p className="text-gray-600 text-sm mb-4">
+      Gentle and guided workouts focusing on joint mobility, light strength,
+      posture correction, and back pain relief — designed for safe,
+      long-term health.
+    </p>
+    <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+      Join Wellness Program
+    </button>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
 
 
       {/* ================= CATEGORIES ================= */}
@@ -207,22 +477,22 @@ export default function HomePage() {
     {[
       {
         name: "Gold Standard Whey",
-        price: "$45.99",
+        price: "£45.99",
         img: "https://m.media-amazon.com/images/I/71f+UBXh2vL._AC_UF1000,1000_QL80_.jpg",
       },
       {
         name: "Hex Dumbbells Set",
-        price: "$89.99",
+        price: "£89.99",
         img: "https://media.istockphoto.com/id/2218484842/photo/angled-close-up-of-hex-dumbbells-on-a-gym-rack-focusing-on-metal-grip-texture-and-10kg-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=0XwnWG-qnG2NEcxt0Hf67si36Aojj4-rHPq2x3clGH8=",
       },
       {
         name: "Training Gloves",
-        price: "$19.99",
+        price: "£19.99",
         img: "https://media.istockphoto.com/id/964979858/photo/cycling-gloves-isolated-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=1hTfQPcMWbof08jbAzS6vz81C8_oOW8aNlcexEPcCMI=",
       },
       {
         name: "Vitamin Supplements",
-        price: "$29.99",
+        price: "$£9.99",
         img: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
       },
     ].map((product, i) => (
