@@ -1,19 +1,18 @@
 import "./globals.css";
 import Header from "./components/Header";
 import WhatsAppButton from "./components/WhatsAppButton";
+import type { ReactNode } from "react";
 
-
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
-        {/* HEADER – ALL PAGES */}
         <Header />
-
-        {/* PAGE CONTENT */}
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <WhatsAppButton />
       </body>
     </html>
