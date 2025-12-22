@@ -91,12 +91,11 @@ export default function ContactPage() {
             </h3>
 
             <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-              />
-
+              <textarea
+  rows={4}
+  placeholder="Your Message"
+  className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+></textarea>
               <input
                 type="email"
                 placeholder="Your Email"
