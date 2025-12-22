@@ -110,7 +110,7 @@ export default function ContactPage() {
               />
 
               <textarea
-                rows="4"
+                rows={4}
                 placeholder="Your Message"
                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
               ></textarea>
