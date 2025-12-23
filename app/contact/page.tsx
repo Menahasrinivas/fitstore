@@ -1,17 +1,30 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function ContactPage() {
+  const [success, setSuccess] = useState(false);
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // simulate submit success
+    setSuccess(true);
+
+    // hide success msg after 3 seconds
+    setTimeout(() => {
+      setSuccess(false);
+    }, 3000);
+  };
+
   return (
     <main className="text-gray-800">
-
       {/* ================= HERO ================= */}
       <section
         className="relative h-[50vh] flex items-center"
@@ -40,7 +53,6 @@ export default function ContactPage() {
       {/* ================= CONTACT INFO + FORM ================= */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12">
-
           {/* LEFT INFO */}
           <div data-aos="fade-right">
             <h2 className="text-3xl font-bold mb-6">
@@ -53,31 +65,10 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <span className="text-2xl">📍</span>
-                <p>
-                  FitStore Gym & Fitness<br />
-                  London, United Kingdom
-                </p>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <span className="text-2xl">📞</span>
-                <p>+44 9876 543210</p>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <span className="text-2xl">📧</span>
-                <p>support@fitstore.com</p>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <span className="text-2xl">⏰</span>
-                <p>
-                  Mon – Sat : 6:00 AM – 10:00 PM<br />
-                  Sunday : Closed
-                </p>
-              </div>
+              <p>📍 London, United Kingdom</p>
+              <p>📞 +44 9876 543210</p>
+              <p>📧 support@fitstore.com</p>
+              <p>⏰ Mon – Sat : 6:00 AM – 10:00 PM</p>
             </div>
           </div>
 
@@ -90,27 +81,39 @@ export default function ContactPage() {
               Send Us a Message
             </h3>
 
-            <form className="space-y-4">
-              <textarea
-  rows={4}
-  placeholder="Your Message"
-  className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-></textarea>
+            {/* SUCCESS MESSAGE */}
+            {success && (
+              <div className="mb-4 text-green-700 bg-green-100 px-4 py-3 rounded-lg">
+                ✅ Message sent successfully!
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                required
+                className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              />
+
               <input
                 type="email"
                 placeholder="Your Email"
+                required
                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
               />
 
               <input
                 type="text"
                 placeholder="Subject"
+                required
                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
               />
 
               <textarea
                 rows={4}
                 placeholder="Your Message"
+                required
                 className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
               ></textarea>
 
@@ -122,7 +125,6 @@ export default function ContactPage() {
               </button>
             </form>
           </div>
-
         </div>
       </section>
 
@@ -141,7 +143,6 @@ export default function ContactPage() {
           Join Now
         </button>
       </section>
-
     </main>
   );
 }

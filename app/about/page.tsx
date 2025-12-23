@@ -144,21 +144,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section
-        data-aos="zoom-in"
-        className="bg-green-700 text-white py-16 text-center"
-      >
-        <h2 className="text-4xl font-bold">
-          Start Your Fitness Transformation
-        </h2>
-        <p className="mt-3">
-          Join our gym programs and power your journey with premium products.
-        </p>
-        <button className="mt-6 bg-black px-8 py-3 rounded-lg">
-          Join Now
-        </button>
-      </section>
+    {/* ================= CTA ================= */}
+<section
+  data-aos="zoom-in"
+  className="bg-green-700 text-white py-16 text-center"
+>
+  <h2 className="text-4xl font-bold">
+    Start Your Fitness Transformation
+  </h2>
+
+  <p className="mt-3">
+    Join our gym programs and power your journey with premium products.
+  </p>
+
+  {/* JOIN NOW → WHATSAPP AUTO MESSAGE */}
+  <a
+    href="https://wa.me/918144405577?text=Hello%20FitStore%20%F0%9F%91%8B%0AI%20am%20interested%20in%20joining%20your%20gym%20training%20programs.%0APlease%20share%20details%20about%20packages%2C%20timings%20and%20offers.%20%F0%9F%92%AA"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button className="mt-6 bg-black px-8 py-3 rounded-lg hover:bg-gray-900 transition">
+      Join Now
+    </button>
+  </a>
+</section>
+
 
     </main>
   );

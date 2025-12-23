@@ -24,3 +24,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes dealsTextScroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-deals-text {
+  display: inline-block;
+  animation: dealsTextScroll 20s linear infinite;
+}
+
+.animate-deals-text:hover {
+  animation-play-state: paused;
+}

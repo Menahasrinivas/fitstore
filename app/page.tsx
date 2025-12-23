@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 
 export default function HomePage() {
   useEffect(() => {
@@ -39,7 +41,7 @@ export default function HomePage() {
   return (
     <main className="w-full text-gray-800">
 
-  
+    
 
       {/* ================= HERO (FULL BG IMAGE) ================= */}
 <section
@@ -70,12 +72,22 @@ export default function HomePage() {
       </p>
 
       <div className="mt-6 flex gap-4">
-        <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition">
-          Join Now
-        </button>
-        <button className="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
-         Shop Now
-        </button>
+        <a
+    href="https://wa.me/918144405577?text=Hello%20FitStore%20%F0%9F%91%8B%0AI%20am%20interested%20in%20joining%20your%20gym%20training%20programs.%0APlease%20share%20details%20about%20packages%2C%20timings%20and%20offers.%20%F0%9F%92%AA"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition cursor-pointer"
+  >
+    Join Now
+  </a>
+        
+       <Link
+    href="/shop"
+    className="inline-flex items-center justify-center border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition cursor-pointer"
+  >
+    Shop Now
+  </Link>
+  
       </div>
     </div>
   </div>
@@ -141,6 +153,31 @@ export default function HomePage() {
     </div>
   </div>
 </section>
+
+{/* ================= GYM TRAINING VIDEO ================= */}
+{/* <section className="max-w-5xl mx-auto px-6 py-20">
+  <div className="text-center mb-8">
+    <h2 className="text-3xl font-bold">
+      Watch Our <span className="text-green-600">Training in Action</span>
+    </h2>
+    <p className="mt-3 text-gray-600">
+      Real workouts, expert trainers, real results.
+    </p>
+  </div>
+
+  <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black">
+    <iframe
+      className="w-full h-full"
+      src="https://www.youtube.com/embed/v=fvFQU6NvJo8"
+      title="Gym Training Video"
+      frameBorder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</section> */}
+
+
 
 {/* ================= OFFERS & DEALS CTA ================= */}
 <section className="bg-gray-100 py-10">
@@ -274,9 +311,12 @@ export default function HomePage() {
             One-on-one training sessions with certified trainers to
             achieve faster results.
           </p>
-          <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
-            Enroll Now
-          </button>
+         <Link href="/training">
+  <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+    Enroll Now
+  </button>
+</Link>
+
         </div>
       </div>
 
@@ -299,9 +339,12 @@ export default function HomePage() {
             Fat-burning workouts combined with diet guidance for
             sustainable weight loss.
           </p>
-          <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
-            Join Program
-          </button>
+         <Link href="/training">
+  <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+    Join program
+  </button>
+</Link>
+
         </div>
       </div>
 
@@ -324,9 +367,12 @@ export default function HomePage() {
             Structured strength training plans focused on lean muscle
             growth and power.
           </p>
-          <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
-            Start Training
-          </button>
+        <Link href="/training">
+  <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+    Start Training
+  </button>
+</Link>
+
         </div>
       </div>
 
@@ -349,9 +395,12 @@ export default function HomePage() {
         Advanced bodybuilding & strength training for competitions
         and stage preparation.
       </p>
-      <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
-        Train for Competition
-      </button>
+     <Link href="/training">
+  <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+    Train For Competition
+  </button>
+</Link>
+
     </div>
   </div>
 
@@ -374,9 +423,12 @@ export default function HomePage() {
         Fun, safe and guided fitness programs to build strength,
         discipline and confidence in kids.
       </p>
-      <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
-        Enroll Kids
-      </button>
+     <Link href="/training">
+  <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+    Enroll Kids
+  </button>
+</Link>
+
     </div>
   </div>
 
@@ -401,9 +453,11 @@ export default function HomePage() {
       posture correction, and back pain relief — designed for safe,
       long-term health.
     </p>
-    <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
-      Join Wellness Program
-    </button>
+    <Link href="/training">
+  <button className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition">
+    Join Wellness Program
+  </button>
+</Link>
   </div>
 </div>
 
@@ -412,60 +466,88 @@ export default function HomePage() {
   </div>
 </section>
 
+{/* ================= CATEGORIES ================= */}
+<section className="max-w-7xl mx-auto px-6 py-16">
+  <h2 data-aos="fade-up" className="text-3xl font-bold mb-8">
+    Shop by Category
+  </h2>
 
-      {/* ================= CATEGORIES ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 data-aos="fade-up" className="text-3xl font-bold mb-8">
-          Shop by Category
-        </h2>
-
-        <div className="grid md:grid-cols-4 gap-6">
-          {[
-            { name: "Protein", img: "https://media.istockphoto.com/id/671922668/photo/young-muscular-man-drinking-a-protein-drink.webp?a=1&b=1&s=612x612&w=0&k=20&c=icmrGRsTHs2Tuy4YdADM4RDc3puFgcXbzhjhr7oEVIc=" },
-            { name: "Accessories", img: "https://media.istockphoto.com/id/1457722390/photo/gym-and-workout-equipments-in-fitness-center.webp?a=1&b=1&s=612x612&w=0&k=20&c=FEuJF9c59nZkTI7UcgUHUmt_cqUwyeypack8JZwUo98=" },
-            { name: "Apparel", img: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" },
-            { name: "Vitamins", img: "https://images.unsplash.com/photo-1627467959547-8e44da7aa00a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZpdGFtaW5zfGVufDB8fDB8fHww" },
-          ].map((cat, i) => (
-            <div
-              key={cat.name}
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
-              className="relative rounded-xl overflow-hidden group"
-            >
-              <img
-                src={cat.img}
-                className="h-64 w-full object-cover group-hover:scale-105 transition"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-end p-4">
-                <h3 className="text-white text-xl font-semibold">{cat.name}</h3>
-              </div>
-            </div>
-          ))}
+  <div className="grid md:grid-cols-4 gap-6">
+    {[
+      {
+        name: "Protein",
+        img: "https://media.istockphoto.com/id/671922668/photo/young-muscular-man-drinking-a-protein-drink.webp?a=1&b=1&s=612x612&w=0&k=20&c=icmrGRsTHs2Tuy4YdADM4RDc3puFgcXbzhjhr7oEVIc=",
+      },
+      {
+        name: "Accessories",
+        img: "https://media.istockphoto.com/id/1457722390/photo/gym-and-workout-equipments-in-fitness-center.webp?a=1&b=1&s=612x612&w=0&k=20&c=FEuJF9c59nZkTI7UcgUHUmt_cqUwyeypack8JZwUo98=",
+      },
+      {
+        name: "Apparel",
+        img: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519",
+      },
+      {
+        name: "Vitamins",
+        img: "https://images.unsplash.com/photo-1627467959547-8e44da7aa00a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHZpdGFtaW5zfGVufDB8fDB8fHww",
+      },
+    ].map((cat, i) => (
+      <Link
+        key={cat.name}
+        href="/products"
+        className="block"
+      >
+        <div
+          data-aos="fade-up"
+          data-aos-delay={i * 100}
+          className="relative rounded-xl overflow-hidden group cursor-pointer"
+        >
+          <img
+            src={cat.img}
+            className="h-64 w-full object-cover group-hover:scale-105 transition"
+          />
+          <div className="absolute inset-0 bg-black/40 flex items-end p-4">
+            <h3 className="text-white text-xl font-semibold">
+              {cat.name}
+            </h3>
+          </div>
         </div>
-      </section>
+      </Link>
+    ))}
+  </div>
+</section>
+
 
       {/* ================= FLASH DEALS ================= */}
-      <section className="bg-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6">
-          
-          <div data-aos="fade-right" className="bg-black text-white p-10 rounded-xl">
-            <h3 className="text-3xl font-bold">50% OFF</h3>
-            <p className="mt-2">On all running gear</p>
-            <button className="mt-4 bg-green-600 px-5 py-2 rounded">
-              Claim Offer
-            </button>
-          </div>
+     <section className="bg-gray-100 py-16">
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6">
+    
+    <div data-aos="fade-right" className="bg-black text-white p-10 rounded-xl">
+      <h3 className="text-3xl font-bold">50% OFF</h3>
+      <p className="mt-2">On all running gear</p>
 
-          <div data-aos="fade-left" className="bg-green-700 text-white p-10 rounded-xl">
-            <h3 className="text-3xl font-bold">Best Seller</h3>
-            <p className="mt-2">Buy Whey Supplements</p>
-            <button className="mt-4 bg-black px-5 py-2 rounded">
-              Shop Now
-            </button>
-          </div>
+      {/* CLAIM OFFER → DEALS PAGE */}
+      <Link href="/deals">
+        <button className="mt-4 bg-green-600 px-5 py-2 rounded">
+          Claim Offer
+        </button>
+      </Link>
+    </div>
 
-        </div>
-      </section>
+    <div data-aos="fade-left" className="bg-green-700 text-white p-10 rounded-xl">
+      <h3 className="text-3xl font-bold">Best Seller</h3>
+      <p className="mt-2">Buy Whey Supplements</p>
+
+      {/* SHOP NOW → PRODUCTS (/shop) PAGE */}
+      <Link href="/shop">
+        <button className="mt-4 bg-black px-5 py-2 rounded">
+          Shop Now
+        </button>
+      </Link>
+    </div>
+
+  </div>
+</section>
+
 
      {/* ================= TRENDING PRODUCTS ================= */}
 <section className="max-w-7xl mx-auto px-6 py-16">
@@ -474,25 +556,25 @@ export default function HomePage() {
   </h2>
 
   <div className="grid md:grid-cols-4 gap-6">
-    {[
+    {[  
       {
         name: "Gold Standard Whey",
-        price: "£45.99",
+        price: "₹345.99",
         img: "https://m.media-amazon.com/images/I/71f+UBXh2vL._AC_UF1000,1000_QL80_.jpg",
       },
       {
         name: "Hex Dumbbells Set",
-        price: "£89.99",
+        price: "₹989.99",
         img: "https://media.istockphoto.com/id/2218484842/photo/angled-close-up-of-hex-dumbbells-on-a-gym-rack-focusing-on-metal-grip-texture-and-10kg-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=0XwnWG-qnG2NEcxt0Hf67si36Aojj4-rHPq2x3clGH8=",
       },
       {
         name: "Training Gloves",
-        price: "£19.99",
+        price: "₹119.99",
         img: "https://media.istockphoto.com/id/964979858/photo/cycling-gloves-isolated-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=1hTfQPcMWbof08jbAzS6vz81C8_oOW8aNlcexEPcCMI=",
       },
       {
         name: "Vitamin Supplements",
-        price: "$£9.99",
+        price: "₹299.99",
         img: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
       },
     ].map((product, i) => (
@@ -581,13 +663,15 @@ export default function HomePage() {
       >
         <h2 className="text-4xl font-bold">Start Your Transformation</h2>
         <p className="mt-2">Get 10% off on your first order</p>
+        <Link href="/shop">
         <button className="mt-6 bg-black px-8 py-3 rounded-lg">
           Explore Products
         </button>
+        </Link>
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer data-aos="fade-up" className="bg-white border-t py-12">
+      {/* <footer data-aos="fade-up" className="bg-white border-t py-12">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6">
           <div>
             <h3 className="font-bold text-green-600">FITSTORE</h3>
@@ -618,7 +702,7 @@ export default function HomePage() {
         </div>
 
         <p className="text-center text-sm mt-6">© 2025 FitStore Inc.</p>
-      </footer>
+      </footer> */}
 
     </main>
   );

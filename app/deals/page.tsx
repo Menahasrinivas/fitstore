@@ -29,7 +29,7 @@ export default function DealsPage() {
     },
     {
       title: "Transformation Pack",
-      offer: "Save £50",
+      offer: "Save ₹50",
       desc: "Training + Supplements Combo",
       price: "Best Value",
       badge: "BEST",

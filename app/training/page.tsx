@@ -8,6 +8,19 @@ export default function TrainingPage() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+const handleJoinWhatsApp = (
+  plan: string,
+  price: string
+) => {
+  const phoneNumber = "918144405577"; // 👈 your WhatsApp number
+  const message = `Hello FitStore 👋
+I’m interested in the ${plan} Training Package.%0A
+Price: ${price}%0A
+Please share batch timings and joining process.`;
+
+  const url = `https://wa.me/${phoneNumber}?text=${message}`;
+  window.open(url, "_blank");
+};
 
   return (
     <main className="text-gray-800">
@@ -220,8 +233,22 @@ export default function TrainingPage() {
 
   </div>
 </section>
+
+{/* JOIN NOW BUTTON – CENTERED */}
+<div className="md:col-span-2 flex justify-center  mt-4 mb-16">
+  <a
+    href="https://wa.me/918144405577?text=Hello%20FitStore%20%F0%9F%91%8B%0AI%20am%20interested%20in%20joining%20the%20Senior%20Citizen%20Fitness%20Program%20(40%2B%2F50%2B).%0APlease%20share%20details%20about%20packages%2C%20timings%20and%20offers.%20%F0%9F%92%AA"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition">
+      Join Now
+    </button>
+  </a>
+</div>
+
 {/* ================= TRAINING PACKAGES & OFFERS ================= */}
-<section className="bg-gray-100 py-24">
+<section className="bg-gray-100 py-22">
   <div className="max-w-7xl mx-auto px-6">
 
     {/* TITLE */}
@@ -248,7 +275,7 @@ export default function TrainingPage() {
   >
     <h3 className="text-xl font-semibold mb-3">Monthly</h3>
 
-    <p className="text-4xl font-bold text-green-600 mb-1">£49</p>
+    <p className="text-4xl font-bold text-green-600 mb-1">₹449</p>
     <p className="text-sm text-gray-500 mb-6">per month</p>
 
     <ul className="space-y-3 text-gray-600 mb-6">
@@ -258,9 +285,13 @@ export default function TrainingPage() {
       <li>✔ Basic trainer guidance</li>
     </ul>
 
-    <button className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition">
-      Join Monthly
-    </button>
+    <button
+  onClick={() => handleJoinWhatsApp("Monthly", "₹449 per month")}
+  className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
+>
+  Join Monthly
+</button>
+
   </div>
 
   {/* QUARTERLY */}
@@ -276,9 +307,9 @@ export default function TrainingPage() {
   >
     <h3 className="text-xl font-semibold mb-3">Quarterly</h3>
 
-    <p className="text-4xl font-bold text-green-600 mb-1">£129</p>
-    <p className="text-sm text-gray-500 line-through">£147</p>
-    <p className="text-sm text-green-600 mb-6">Save £18</p>
+    <p className="text-4xl font-bold text-green-600 mb-1">₹1699</p>
+    <p className="text-sm text-gray-500 line-through">₹1999</p>
+    <p className="text-sm text-green-600 mb-6">Save ₹300</p>
 
     <ul className="space-y-3 text-gray-600 mb-6">
       <li>✔ All Monthly benefits</li>
@@ -287,9 +318,13 @@ export default function TrainingPage() {
       <li>✔ Morning & evening batches</li>
     </ul>
 
-    <button className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition">
-      Join Quarterly
-    </button>
+   <button
+  onClick={() => handleJoinWhatsApp("Quarterly", "₹1699")}
+  className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
+>
+  Join Quarterly
+</button>
+
   </div>
 
   {/* YEARLY */}
@@ -305,9 +340,9 @@ export default function TrainingPage() {
   >
     <h3 className="text-xl font-semibold mb-3">Yearly</h3>
 
-    <p className="text-4xl font-bold text-green-600 mb-1">£399</p>
-    <p className="text-sm text-gray-500 line-through">£588</p>
-    <p className="text-sm text-green-600 mb-6">Save £189</p>
+    <p className="text-4xl font-bold text-green-600 mb-1">₹5999</p>
+    <p className="text-sm text-gray-500 line-through">₹6999</p>
+    <p className="text-sm text-green-600 mb-6">Save ₹1000</p>
 
     <ul className="space-y-3 text-gray-600 mb-6">
       <li>✔ All Quarterly benefits</li>
@@ -316,9 +351,13 @@ export default function TrainingPage() {
       <li>✔ Free fitness assessment</li>
     </ul>
 
-    <button className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition">
-      Join Yearly
-    </button>
+    <button
+  onClick={() => handleJoinWhatsApp("Yearly", "₹5999")}
+  className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
+>
+  Join Yearly
+</button>
+
   </div>
 
 </div>
@@ -444,9 +483,15 @@ export default function TrainingPage() {
         <p className="mt-3">
           Join our gym programs and transform your lifestyle today.
         </p>
-        <button className="mt-6 bg-black px-8 py-3 rounded-lg">
-          Enroll Now
-        </button>
+        <a
+    href="https://wa.me/918144405577?text=Hello%20FitStore%20%F0%9F%91%8B%0AI%20am%20interested%20in%20joining%20your%20gym%20training%20programs.%0APlease%20share%20details%20about%20packages%2C%20timings%20and%20offers.%20%F0%9F%92%AA"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <button className="mt-6 bg-black px-8 py-3 rounded-lg hover:bg-gray-900 transition">
+      Join Now
+    </button>
+  </a>
       </section>
 
     </main>
