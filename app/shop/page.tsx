@@ -32,7 +32,7 @@ export default function ProductsPage() {
     {
       name: "Hex Dumbbells Set",
       price: "₹989.99",
-      img: "https://media.istockphoto.com/id/855984248/photo/tight-isometric-grid-of-black-dumbells.webp",
+      img: "https://images.unsplash.com/photo-1648659125396-5bf148702e3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGR1bWJiZWxsc3xlbnwwfHwwfHx8MA%3D%3Dhttps://images.unsplash.com/photo-1648659125396-5bf148702e3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGR1bWJiZWxsc3xlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       name: "Training Gloves",
