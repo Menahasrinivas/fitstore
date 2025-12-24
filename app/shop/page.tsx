@@ -32,7 +32,7 @@ export default function ProductsPage() {
     {
       name: "Hex Dumbbells Set",
       price: "₹989.99",
-      img: "https://images.unsplash.com/photo-1648659125396-5bf148702e3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGR1bWJiZWxsc3xlbnwwfHwwfHx8MA%3D%3D",
+      img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61",
     },
     {
       name: "Training Gloves",
@@ -48,6 +48,23 @@ export default function ProductsPage() {
 
   return (
     <main className="text-gray-800">
+
+      {/* ===== DEALS SCROLLING OFFERS ===== */}
+      <section className="w-full bg-gradient-to-r from-green-100 via-yellow-50 to-green-100 py-4 overflow-hidden">
+        <Link href="/deals">
+          <div className="whitespace-nowrap animate-deals-text cursor-pointer text-center">
+            <span className="mx-10 text-red-500 font-semibold text-lg">
+              💥🎁 Click here to see today’s exciting deals & offers 🎁💥
+            </span>
+            <span className="mx-10 text-green-600 font-semibold text-lg">
+              💥🎁 Click here to see today’s exciting deals & offers 🎁💥
+            </span>
+            <span className="mx-10 text-pink-600 font-semibold text-lg">
+              💥🎁 Click here to see today’s exciting deals & offers 🎁💥
+            </span>
+          </div>
+        </Link>
+      </section>
 
       {/* PRODUCTS GRID */}
       <section className="max-w-7xl mx-auto px-6 py-20">
@@ -76,8 +93,6 @@ export default function ProductsPage() {
                 </p>
 
                 <div className="flex gap-3">
-
-                  {/* ADD TO CART */}
                   <button
                     onClick={() => {
                       addToCart({
@@ -93,14 +108,12 @@ export default function ProductsPage() {
                     Add to Cart
                   </button>
 
-                  {/* BUY NOW → DEALS / WHATSAPP LATER */}
                   <Link
                     href="/deals"
                     className="flex-1 border border-green-600 text-green-600 py-2 rounded-lg hover:bg-green-600 hover:text-white transition text-center"
                   >
                     Buy Now
                   </Link>
-
                 </div>
               </div>
             </div>

@@ -26,7 +26,7 @@ body {
 }
 
 
-@keyframes dealsTextScroll {
+@keyframes dealsText {
   0% {
     transform: translateX(100%);
   }
@@ -37,9 +37,6 @@ body {
 
 .animate-deals-text {
   display: inline-block;
-  animation: dealsTextScroll 20s linear infinite;
+  animation: dealsText 15s linear infinite;
 }
 
-.animate-deals-text:hover {
-  animation-play-state: paused;
-}
