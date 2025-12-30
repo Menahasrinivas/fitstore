@@ -15,64 +15,39 @@ export default function ProductsPage() {
 
   const products = [
     {
+      id: 1,
       name: "Gold Standard Whey Protein",
-      price: "₹845.99",
+      price: 845.99,
       img: "https://m.media-amazon.com/images/I/71f+UBXh2vL._AC_UF1000,1000_QL80_.jpg",
     },
     {
+      id: 2,
       name: "Mass Gainer",
-      price: "₹639.99",
+      price: 639.99,
       img: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1",
     },
     {
+      id: 3,
       name: "Creatine Monohydrate",
-      price: "₹524.99",
+      price: 524.99,
       img: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843",
     },
     {
+      id: 4,
       name: "Hex Dumbbells Set",
-      price: "₹989.99",
+      price: 989.99,
       img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61",
-    },
-    {
-      name: "Training Gloves",
-      price: "₹419.99",
-      img: "https://plus.unsplash.com/premium_photo-1675803775295-40710e76825b",
-    },
-    {
-      name: "Vitamin Supplements",
-      price: "₹629.99",
-      img: "https://images.unsplash.com/photo-1627467959547-8e44da7aa00a",
     },
   ];
 
   return (
     <main className="text-gray-800">
-
-      {/* ===== DEALS SCROLLING OFFERS ===== */}
-      <section className="w-full bg-gradient-to-r from-green-100 via-yellow-50 to-green-100 py-4 overflow-hidden">
-        <Link href="/deals">
-          <div className="whitespace-nowrap animate-deals-text cursor-pointer text-center">
-            <span className="mx-10 text-red-500 font-semibold text-lg">
-              💥🎁 Click here to see today’s exciting deals & offers 🎁💥
-            </span>
-            <span className="mx-10 text-green-600 font-semibold text-lg">
-              💥🎁 Click here to see today’s exciting deals & offers 🎁💥
-            </span>
-            <span className="mx-10 text-pink-600 font-semibold text-lg">
-              💥🎁 Click here to see today’s exciting deals & offers 🎁💥
-            </span>
-          </div>
-        </Link>
-      </section>
-
-      {/* PRODUCTS GRID */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
 
           {products.map((product, i) => (
             <div
-              key={product.name}
+              key={product.id}
               data-aos="zoom-in"
               data-aos-delay={i * 100}
               className="bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
@@ -89,21 +64,40 @@ export default function ProductsPage() {
                 </h3>
 
                 <p className="text-green-600 font-bold mb-4">
-                  {product.price}
+                  ₹{product.price}
                 </p>
 
                 <div className="flex gap-3">
+
+                  {/* ✅ ADD TO CART (FIXED) */}
                   <button
-                    onClick={() => {
+                    className="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+                    onClick={async () => {
+                      /* 1️⃣ BACKEND */
+                      await fetch(
+                        "http://localhost/fitstore-backend/add-to-cart.php",
+                        {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                            name: product.name,
+                            price: product.price,
+                            qty: 1,
+                          }),
+                        }
+                      );
+
+                      /* 2️⃣ FRONTEND STATE (🔥 MOST IMPORTANT) */
                       addToCart({
+                        id: product.id,
                         name: product.name,
                         price: product.price,
                         img: product.img,
                         qty: 1,
                       });
-                      alert("Added to cart 🛒");
                     }}
-                    className="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
                   >
                     Add to Cart
                   </button>
@@ -114,6 +108,7 @@ export default function ProductsPage() {
                   >
                     Buy Now
                   </Link>
+
                 </div>
               </div>
             </div>
@@ -121,7 +116,6 @@ export default function ProductsPage() {
 
         </div>
       </section>
-
     </main>
   );
 }

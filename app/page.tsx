@@ -493,7 +493,7 @@ export default function HomePage() {
     ].map((cat, i) => (
       <Link
         key={cat.name}
-        href="/products"
+        href="/shop"
         className="block"
       >
         <div

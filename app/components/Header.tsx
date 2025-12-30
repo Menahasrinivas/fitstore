@@ -8,7 +8,11 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const { cart } = useCart();
 
-  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+  // ✅ SAFE calculation (important)
+  const totalItems =
+    cart && cart.length > 0
+      ? cart.reduce((sum: number, item: any) => sum + item.qty, 0)
+      : 0;
 
   const menuItems = [
     { label: "Home", path: "/" },
@@ -25,10 +29,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
 
         {/* LOGO */}
-        <h1 className="text-xl font-bold text-green-600">FITSTORE</h1>
+        <Link href="/" className="text-xl font-bold text-green-600">
+          FITSTORE
+        </Link>
 
         {/* DESKTOP MENU */}
         <nav className="hidden md:flex items-center gap-8 text-gray-700">
+
           {menuItems.map((item) => (
             <Link key={item.label} href={item.path}>
               {item.label}
@@ -36,24 +43,38 @@ export default function Header() {
           ))}
 
           {/* CART ICON */}
-          <div className="relative">
+          <Link href="/cart" className="relative">
             <span className="text-2xl">🛒</span>
+
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs px-2 rounded-full">
+              <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs px-2 py-0.5 rounded-full">
                 {totalItems}
               </span>
             )}
-          </div>
+          </Link>
         </nav>
 
-        {/* MOBILE HAMBURGER */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-2xl text-black"
-          aria-label="Open menu"
-        >
-          ☰
-        </button>
+        {/* MOBILE HEADER RIGHT */}
+        <div className="md:hidden flex items-center gap-4">
+          {/* MOBILE CART */}
+          <Link href="/cart" className="relative">
+            <span className="text-2xl">🛒</span>
+            {totalItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs px-2 py-0.5 rounded-full">
+                {totalItems}
+              </span>
+            )}
+          </Link>
+
+          {/* HAMBURGER */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-2xl text-black"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
       </div>
 
       {/* MOBILE MENU */}
